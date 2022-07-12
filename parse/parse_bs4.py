@@ -1,6 +1,6 @@
-from parse.parse_categories import get_categories
+from parse.parse_categories import fetch_categories
 
 
 def fill_categories():
-    get_categories()
+    fetch_categories()
 
