@@ -20,10 +20,7 @@ def fetch_categories():
     components = soup.findAll('div', class_='ek-grid_indent_s')
 
     get_categories(components)  # get categories
-    print(state['categories'])
-    print(state['sub-categories-1'])
-    print(state['sub-categories-2'])
-
+    return state
 
 #                                   ..:: Sub Functions ::..
 
@@ -32,6 +29,7 @@ def get_categories(components):
     for component in components:
         try:
             category = component.find('h2', class_='CategoryName__textSizeH1--3CXRM').get_text(strip=True)
+
             state['categories'].append(category)
             state['sub-categories-1'][category] = []
             get_sub_categories_1(component, category)  # get sub categories 1
