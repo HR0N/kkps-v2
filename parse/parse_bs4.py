@@ -23,3 +23,6 @@ def fill_categories():
     print(state['sub-categories-1'])
     print(state['sub-categories-2'])
 
+def parse_orders():
+    print(1)
+
