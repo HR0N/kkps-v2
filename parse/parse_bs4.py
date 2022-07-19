@@ -1,3 +1,4 @@
+from parse.parse_orders import check_page
 from parse.parse_categories import fetch_categories
 from db.insert_categories import insert_categories
 from db.insert_categories import insert_categories_sub1
@@ -18,12 +19,11 @@ def fill_categories():
     for category in state['sub-categories-2']:
         for sub_category in state['sub-categories-2'][category]:
             insert_categories_sub2(sub_category, category)
-
     print(state['categories'])
     print(state['sub-categories-1'])
     print(state['sub-categories-2'])
 
 
 def parse_orders():
-    print(2)
+    check_page()
 
