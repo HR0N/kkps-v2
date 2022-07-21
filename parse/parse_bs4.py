@@ -1,4 +1,4 @@
-from parse.parse_orders import check_page
+from parse.parse_orders import parse_circle
 from parse.parse_categories import fetch_categories
 from db.insert_categories import insert_categories
 from db.insert_categories import insert_categories_sub1
@@ -25,5 +25,5 @@ def fill_categories():
 
 
 def parse_orders():
-    check_page()
+    parse_circle()
 
