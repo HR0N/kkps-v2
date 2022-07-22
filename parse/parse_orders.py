@@ -26,6 +26,7 @@ def parse_circle():     # actions, we repeat every circle (10-15sec random)
     #     time.sleep(rand)
     #     if check_page(soup):    # check is page has any problem: yes it has - return False; hasn't - True
     #         parse_page(soup)
+    print(link)
     print(parse_page(soup))
 
 
@@ -56,6 +57,7 @@ def parse_page(page):   # parsing the page
         client = item_find(page, 'a', 'kb-sidebar-profile__name')
         review = item_find(page, 'span', 'kb-sidebar-profile__reviews-count')
         positive = item_find(page, 'div', 'kb-sidebar-profile__rating')
+        categories = item_find_all(page, 'a', 'kb-breadcrumb__link')
 
         if title != 'empty for some reason (o.O)':
             data['title'] = title.split('№')[0]
@@ -96,6 +98,15 @@ def parse_page(page):   # parsing the page
             data['positive'] = positive
         else:
             data['positive'] = positive
+        if categories != 'empty for some reason (o.O)':
+            categories2 = []
+            for cat in categories:
+                categories2.append(cat.get_text(strip=True))
+            if categories2[0] == 'Все услуги' or categories2[0] == 'Всі послуги':
+                del categories2[0]
+            data['categories'] = categories2
+        else:
+            data['categories'] = categories
         # update_last_order(last_order + 1)
     except AttributeError:
         print('error: parse_orders.parse_page() ', AttributeError)
