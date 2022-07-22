@@ -6,33 +6,45 @@ def insert_categories(category):
     cursor = connection.cursor()
     category = rm_quotes(category)
     sql_query = (
-        "INSERT INTO `categories`(`category`) VALUES (\'"+category+"\')")
+        "INSERT INTO `kabanchik_categories`(`category`) VALUES (\'"+category+"\')")
     cursor.execute(sql_query)
     cursor.close()
 
 
-def insert_categories_sub1(sub_category, p_category):
+def insert_categories2(sub_category, p_category):
     connection = create_connection()
     cursor = connection.cursor()
     sub_category = rm_quotes(sub_category)
     p_category = rm_quotes(p_category)
     sql_query = (
-        "INSERT INTO `categories_sub_1`(`category`, `parent_category`) "
+        "INSERT INTO `kabanchik_categories`(`category`, `parent_category`) "
         "VALUES (\'"+sub_category+"\', \'"+p_category+"\')")
     cursor.execute(sql_query)
     cursor.close()
 
 
-def insert_categories_sub2(sub_category, p_category):
-    connection = create_connection()
-    cursor = connection.cursor()
-    sub_category = rm_quotes(sub_category)
-    p_category = rm_quotes(p_category)
-    sql_query = (
-        "INSERT INTO `categories_sub_2`(`category`, `parent_category`) "
-        "VALUES (\'"+sub_category+"\', \'"+p_category+"\')")
-    cursor.execute(sql_query)
-    cursor.close()
+# def insert_categories_sub1(sub_category, p_category):
+#     connection = create_connection()
+#     cursor = connection.cursor()
+#     sub_category = rm_quotes(sub_category)
+#     p_category = rm_quotes(p_category)
+#     sql_query = (
+#         "INSERT INTO `categories_sub_1`(`category`, `parent_category`) "
+#         "VALUES (\'"+sub_category+"\', \'"+p_category+"\')")
+#     cursor.execute(sql_query)
+#     cursor.close()
+#
+#
+# def insert_categories_sub2(sub_category, p_category):
+#     connection = create_connection()
+#     cursor = connection.cursor()
+#     sub_category = rm_quotes(sub_category)
+#     p_category = rm_quotes(p_category)
+#     sql_query = (
+#         "INSERT INTO `categories_sub_2`(`category`, `parent_category`) "
+#         "VALUES (\'"+sub_category+"\', \'"+p_category+"\')")
+#     cursor.execute(sql_query)
+#     cursor.close()
 
 
 def rm_quotes(string):

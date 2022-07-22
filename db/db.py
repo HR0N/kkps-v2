@@ -17,4 +17,6 @@ def create_connection():
         print("Connection to MySQL DB successful")
     except Error as e:
         print(f"The error '{e}' occurred")
+
+    connection.autocommit = True  # that's happen when php and python met together
     return connection

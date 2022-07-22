@@ -34,7 +34,7 @@ def get_categories(components):
             state['sub-categories-1'][category] = []
             get_sub_categories_1(component, category)  # get sub categories 1
         except AttributeError:
-            print('shved error: get_categories() ', AttributeError)
+            print('error: get_categories() ', AttributeError)
 
 
 def get_sub_categories_1(component, category):
@@ -53,7 +53,7 @@ def get_sub_categories_1(component, category):
                 sub_category_list.append(sub_cat_a.get_text(strip=True))
                 last_sub_category = sub_cat_a.get_text(strip=True)
     except AttributeError:
-        print('shved error: get_sub_categories_1() ', AttributeError)
+        print('error: get_sub_categories_1() ', AttributeError)
 
 
 def get_sub_categories_2(sub_category_1, last_category):
@@ -62,4 +62,4 @@ def get_sub_categories_2(sub_category_1, last_category):
             sub_cat_2 = sub_category.find('span', class_='CategoryName__textSizeDefault--1Tq00')
             state['sub-categories-2'][last_category].append(sub_cat_2.get_text(strip=True))
     except AttributeError:
-        print('shved error: get_sub_categories_2() ', AttributeError)
+        print('error: get_sub_categories_2() ', AttributeError)
