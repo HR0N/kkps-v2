@@ -1,4 +1,16 @@
 from db.db import create_connection
+import json
+
+
+def insert_categories_new(categories):
+    connection = create_connection()
+    cursor = connection.cursor()
+    categories = json.dumps(categories, ensure_ascii=False)
+    print(categories)
+    sql_query = (
+        "INSERT INTO `kabanchik_categories`(`categories`) VALUES (\'"+categories+"\')")
+    cursor.execute(sql_query)
+    cursor.close()
 
 
 def insert_categories(category):
