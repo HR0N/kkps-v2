@@ -40,10 +40,10 @@ def get_categories(components):
                 if 'CategoryTree__childrenItemTypeNestedIncreasedIndent--a7LfT' in sub_cat.attrs['class']:
                     categories[category1][prev_category] = []
                     sub_categories_list2 = sub_cat.findAll('li',
-                                                           class_='CategoryTree__childrenItemIncreasedIndent--3NkFW')\
-                        .replace("'", '')
+                                                           class_='CategoryTree__childrenItemIncreasedIndent--3NkFW')
                     for sub_cat2 in sub_categories_list2:
-                        category3 = sub_cat2.get_text(strip=True)
+                        category3 = sub_cat2.get_text(strip=True)\
+                            .replace("'", '')
                         categories[category1][prev_category].append(category3)
                 else:
                     categories[category1][category2] = False

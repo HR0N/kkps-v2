@@ -6,6 +6,8 @@ def insert_categories_new(categories):
     connection = create_connection()
     cursor = connection.cursor()
     categories = json.dumps(categories, ensure_ascii=False)
+    categories = categories.replace(': ', ':')
+    categories = categories.replace(', ', ',')
     print(categories)
     sql_query = (
         "INSERT INTO `kabanchik_categories`(`categories`) VALUES (\'"+categories+"\')")
